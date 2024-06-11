@@ -1,6 +1,9 @@
 package sandoval0315.helpdesk
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +19,13 @@ class TicketNew : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val txtTitulo = findViewById<EditText>(R.id.txtTitulo)
+        val txtDescripcion = findViewById<EditText>(R.id.txtDesc)
+        val txtCorreo = findViewById<EditText>(R.id.txtCorreoT)
+        val txtAutor = findViewById<EditText>(R.id.txtAutor)
+        val txtFecha = findViewById<EditText>(R.id.txtFecha)
+        val cbActivo = findViewById<CheckBox>(R.id.cbActivo)
+        val btnAgregar = findViewById<Button>(R.id.btnAgregarT)
     }
 }
