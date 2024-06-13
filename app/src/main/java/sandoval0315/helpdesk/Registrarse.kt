@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.security.MessageDigest
 import java.util.UUID
 
 class Registrarse : AppCompatActivity() {
@@ -48,11 +49,12 @@ class Registrarse : AppCompatActivity() {
         }
 
 
+
         btnIrAlLogin.visibility = View.GONE
         btnCrearCuenta.setOnClickListener {
             val nombre = txtNombre.text.toString()
             val correo = txtCorreo.text.toString()
-            val contraseña = txtContraseña.text.toString()
+            val contraseña =txtContraseña.text.toString()
 
             if (nombre.isEmpty() || correo.isEmpty() || contraseña.isEmpty()) {
                 // mostrar error en caso de querer crear cuenta con campos vacios

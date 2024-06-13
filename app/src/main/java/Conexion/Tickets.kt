@@ -2,7 +2,7 @@ package Conexion
 
 data class Tickets(
     val uuid:String,
-    val titulo:String,
+    var titulo:String,
     val descripcion:String,
     val autor:String,
     val correo:String,

@@ -2,6 +2,7 @@ package sandoval0315.helpdesk
 
 import Conexion.Conexion
 import Conexion.Tickets
+import RecyclerView.Adaptador
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -11,6 +12,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +59,14 @@ class MainActivity : AppCompatActivity() {
                 tickets.add(ticket)
             }
             return tickets
+        }
+
+        CoroutineScope ( Dispatchers.IO) .launch {
+            val productosBd=obtenerDatos()
+            withContext(Dispatchers.Main){
+                val miAdapter = Adaptador(productosBd)
+                rcvTickets.adapter=miAdapter
+            }
         }
     }
 }
